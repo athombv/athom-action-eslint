@@ -8,6 +8,8 @@ This action executes ESLint linter on specified javascript files without any pre
 You must have the ESLint running locally for the action to execute. It will use the same rules as you do locally.
 More info [on the ESLint getting started guide](https://eslint.org/docs/user-guide/getting-started#installation-and-usage)
 
+This action will run `npm install --only=dev` to install the necessary dev dependencies to run ESLint, make sure `eslint` and any other configuration packages (e.g. `eslint-config-athom`) are included in the dev dependencies.
+
 ## Usage
 
 ### main.yml
@@ -44,8 +46,6 @@ jobs:
         with:
           files: src/
 ```
-
-This action will run `npm install --only=dev` to install the necessary dev dependencies to run ESLint, make sure `eslint` and any other configuration packages (e.g. `eslint-config-athom`) are included in the dev dependencies.
 
 ## License
 
