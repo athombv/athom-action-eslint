@@ -24,8 +24,8 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: stefanoeb/eslint-action@1.0.2
+      - uses: actions/checkout@v2
+      - uses: athombv/athom-action-eslint@1.0.3
 ```
 
 By default it will run ESLint through all the files in the project. But you can also specify a glob of files to lint using the `with:` argument on your YAML file. The example below shows ESLint running only on the files under the `src/` folder:
@@ -39,13 +39,13 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: stefanoeb/eslint-action@1.0.2
+      - uses: actions/checkout@v2
+      - uses: athombv/athom-action-eslint@1.0.3
         with:
           files: src/
 ```
 
-If there is no previous step installing the necessary modules, this action will execute a `yarn install` or `npm install` automatically.
+This action will run `npm install --only=dev` to install the necessary dev dependencies to run ESLint, make sure `eslint` and any other configuration packages (e.g. `eslint-config-athom`) are included in the dev dependencies.
 
 ## License
 
