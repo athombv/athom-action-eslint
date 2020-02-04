@@ -11,7 +11,6 @@ if [ -n "$1" ]; then
     eval "$(ssh-agent -s)"
     echo "## Added following ssh key"
     echo "$1" || ssh-add -
-    ssh-add -l
 fi
 
 if [ -f package-lock.json ]; then
