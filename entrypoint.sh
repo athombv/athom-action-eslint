@@ -3,15 +3,17 @@
 # Exit if any subcommand fails
 set -e 
 
+SSH_KEY="$1"
+
 echo "## Running ESLint"
 
-if [ -n "$1" ]; then
+if [ -n SSH_KEY ]; then
     echo "## Setting up SSH"
     mkdir -p ~/.ssh
     eval "$(ssh-agent -s)"
-    ssh-add - <<<"$1"
+    ssh-add - <<< "${SSH_KEY}"
     echo "## Added ssh key"
-    ssh-keyscan github.com >> ~/.ssh/known_hosts
+    ssh-keyscan -H github.com >> ~/.ssh/known_hosts
     echo "## Keyscan completed"
     cat ~/.ssh/known_hosts
 fi
