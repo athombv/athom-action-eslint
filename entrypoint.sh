@@ -11,11 +11,8 @@ if [ -n SSH_KEY ]; then
     echo "## Setting up SSH"
     mkdir -p ~/.ssh
     eval "$(ssh-agent -s)"
-    ssh-add - <<< "${SSH_KEY}"
-    echo "## Added ssh key"
-    ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-    echo "## Keyscan completed"
-    cat ~/.ssh/known_hosts
+    ssh-add - <<<"${SSH_KEY}"
+    echo "## Added SSH key"
 fi
 
 if [ -f package-lock.json ]; then
