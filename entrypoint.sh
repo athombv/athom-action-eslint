@@ -11,6 +11,7 @@ if [ -n "$1" ]; then
     eval "$(ssh-agent -s)"
     ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     echo "## Keyscan completed"
+    cat ~/.ssh/known_hosts
     ssh-add - <<<"$1"
     echo "## Added ssh key"
 fi
