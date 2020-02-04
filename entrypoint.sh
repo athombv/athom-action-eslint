@@ -11,7 +11,7 @@ if [ -n "$1" ]; then
     eval "$(ssh-agent -s)"
     echo "## Added following ssh key"
     echo "$1"
-    ssh-add - < "$1"
+    ssh-add - <<< "$1"
 fi
 
 sh -c "npm install --only=dev && ./node_modules/.bin/eslint ."
