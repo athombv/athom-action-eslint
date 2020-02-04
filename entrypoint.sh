@@ -10,7 +10,7 @@ if [ -n "$1" ]; then
     mkdir -p ~/.ssh
     eval "$(ssh-agent -s)"
     echo "## Added following ssh key"
-    ssh-add - <<< "$1"
+    echo "$1" || ssh-add -
 fi
 
 sh -c "npm install --only=dev && ./node_modules/.bin/eslint ."
