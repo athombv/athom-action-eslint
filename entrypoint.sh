@@ -9,6 +9,7 @@ if [ -n "$1" ]; then
     echo "## Setting up SSH"
     mkdir -p ~/.ssh
     eval "$(ssh-agent -s)"
+    ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     echo "## Added following ssh key"
     ssh-add - <<<"$1"
 fi
