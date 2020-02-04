@@ -10,7 +10,6 @@ if [ -n "$1" ]; then
     mkdir -p ~/.ssh
     eval "$(ssh-agent -s)"
     echo "## Added following ssh key"
-    echo "$1"
     ssh-add - <<< "$1"
 fi
 
