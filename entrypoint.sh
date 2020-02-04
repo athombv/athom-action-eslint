@@ -10,7 +10,7 @@ if [ -n "$1" ]; then
     mkdir -p ~/.ssh
     eval "$(ssh-agent -s)"
     echo "## Added following ssh key"
-    echo "$1" || ssh-add -
+    ssh-add - <<<"$1"
 fi
 
 if [ -f package-lock.json ]; then
