@@ -2,10 +2,6 @@ name: Run ESLint
 description: Run ESLint on JavaScript files
 author: stefanoeb
 inputs:
-  files:
-    description: Blob of files to lint
-    required: false
-    default: '.'
   secret:
     description: Secret
     required: false
@@ -14,7 +10,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.files }}
     - ${{ inputs.secret }}
 branding: 
   icon: circle
