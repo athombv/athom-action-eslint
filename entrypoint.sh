@@ -10,8 +10,9 @@ if [ -n "$1" ]; then
     mkdir -p ~/.ssh
     eval "$(ssh-agent -s)"
     ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-    echo "## Added following ssh key"
+    echo "## Keyscan completed"
     ssh-add - <<<"$1"
+    echo "## Added ssh key"
 fi
 
 if [ -f package-lock.json ]; then
