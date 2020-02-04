@@ -9,7 +9,6 @@ echo "## Running ESLint"
 
 if [ -n SSH_KEY ]; then
     echo "## Setting up SSH"
-    mkdir -p ~/.ssh
     eval "$(ssh-agent -s)"
     ssh-add - <<<"${SSH_KEY}"
     echo "## Added SSH key"
