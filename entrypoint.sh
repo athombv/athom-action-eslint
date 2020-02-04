@@ -7,7 +7,6 @@ echo "## Running ESLint"
 
 if [ -n "$1" ]; then
     echo "## Setting up SSH"
-    systemctl status ssh
     mkdir -p ~/.ssh
     eval "$(ssh-agent -s)"
     echo "## Added following ssh key"
