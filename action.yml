@@ -2,6 +2,10 @@ name: Run ESLint
 description: Run ESLint on JavaScript files
 author: stefanoeb
 inputs:
+  secret:
+    description: Secret
+    required: false
+    default: false
   files:
     description: Blob of files to lint
     required: false
