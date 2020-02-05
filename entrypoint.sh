@@ -11,6 +11,9 @@ if [ -n SSH_KEY ]; then
     echo "## Setting up SSH"
     eval "$(ssh-agent -s)"
     ssh-add - <<<"${SSH_KEY}"
+    
+    mkdir -m 700 ~/.ssh
+    touch -m 600 ~/.ssh/known_hosts
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
     ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
     
