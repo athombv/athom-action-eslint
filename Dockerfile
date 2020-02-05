@@ -1,6 +1,6 @@
 FROM node:12-alpine
 
-RUN adduser -r -u 1001 myuser
+RUN adduser -D -u 1001 myuser
 
 RUN apk --update add --no-cache bash openssh-client git
 
