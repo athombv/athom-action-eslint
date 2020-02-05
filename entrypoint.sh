@@ -4,7 +4,6 @@
 set -e 
 
 SSH_KEY="$1"
-echo ${#SSH_KEY}
 echo "## Running ESLint"
 
 if [ -n SSH_KEY ]; then
