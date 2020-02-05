@@ -15,12 +15,12 @@ if [ -n SSH_KEY ]; then
     mkdir -p -m 700 ~/.ssh
     touch -m 600 ~/.ssh/known_hosts
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-    ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
+    ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     
     mkdir -p -m 700 $HOME/.ssh
     touch -m 600 $HOME/.ssh/known_hosts
-    ssh-keyscan -H github.com > $HOME/.ssh/known_hosts
-    ssh-keyscan -t rsa github.com > $HOME/.ssh/known_hosts
+    ssh-keyscan -H github.com >> $HOME/.ssh/known_hosts
+    ssh-keyscan -t rsa github.com >> $HOME/.ssh/known_hosts
     
     ls -a | grep .ssh
     echo "## Added SSH key"
