@@ -11,7 +11,7 @@ if [ -n SSH_KEY ]; then
     echo "## Setting up SSH"
     eval "$(ssh-agent -s)"
     ssh-add - <<<"${SSH_KEY}"
-    ssh -o StrictHostKeyChecking=no git@github.com.com uptime
+    ssh -o StrictHostKeyChecking=no git@github.com uptime
     echo "## Added SSH key"
 fi
 
