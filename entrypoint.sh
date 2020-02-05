@@ -12,6 +12,7 @@ if [ -n SSH_KEY ]; then
     eval "$(ssh-agent -s)"
     ssh-add - <<<"${SSH_KEY}"
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+    ssh-keyscan -H github.com >> $HOME/.ssh/known_hosts
     ls -a | grep .ssh
     echo "## Added SSH key"
 fi
