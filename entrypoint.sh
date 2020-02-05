@@ -11,7 +11,8 @@ if [ -n SSH_KEY ]; then
     echo "## Setting up SSH"
     eval "$(ssh-agent -s)"
     ssh-add - <<<"${SSH_KEY}"
-    ssh -o StrictHostKeyChecking=no git@github.com
+    ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+    ssh-keyscan -H github.com >> /github/home/.ssh/known_hosts
     echo "## Added SSH key"
 fi
 
