@@ -1,10 +1,10 @@
 FROM node:12-alpine
 
-RUN adduser -S myuser
+# RUN adduser -S myuser
 
 RUN apk --update add --no-cache bash openssh-client git
 
-USER myuser
+# USER myuser
 
 RUN mkdir -m 700 /root/.ssh; \
   touch -m 600 /root/.ssh/known_hosts; \
